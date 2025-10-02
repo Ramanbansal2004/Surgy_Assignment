@@ -27,7 +27,7 @@ export const sendOtp = async (req, res) => {
         await twilioClient.messages.create({
             body: `Your verification code is ${otp}`,
             from: `whatsapp:${process.env.TWILIO_PHONE_NUMBER}`,
-            to: `whatsapp:${phone}`
+            to: `whatsapp:${phone}`,
         });
         
         const salt = await bcrypt.genSalt(10);
